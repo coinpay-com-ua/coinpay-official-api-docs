@@ -1209,7 +1209,7 @@ POST /api/v1/exchange
 }
 ```
 
-1. Покупка BTC за UAH по рынку потратив на обмен 1000 UAH
+2. Покупка BTC за UAH по рынку потратив на обмен 1000 UAH
 ```javascript
 {
   "currency_to_spend": "UAH",
@@ -1218,7 +1218,7 @@ POST /api/v1/exchange
 }
 ```
 
-1. Покупка 1 BTC за UAH по цене 200000
+3. Покупка 1 BTC за UAH по цене 200000
 ```javascript
 {
   "currency_to_spend": "UAH",
