@@ -55,7 +55,7 @@
     - [Order details for callback notification](#exchange-order-details-for-callback-notification)
 
 ## Request Processing
-* Base api url - https://coinpay.org.ua/
+* Base api url - https://api.coinpay.ua/
 * Content-Type – json
 
 Each response contains a structure in which there is a ‘status’ field indicating if such response was processed successfully. A successfully processed response has 2XX status code, and an unsuccessfully processed one - either 4XXX or 5XX.
@@ -346,9 +346,9 @@ The balance contains crypto addresses that can be replenished; the addresses are
 
 **For example:**
 
-1) The amount of ‘EUR’ in your account - balance [‘EUR’] [‘EUR’]
+1. The amount of ‘EUR’ in your account - balance [‘EUR’] [‘EUR’]
 
-2) The amount of ‘EUR’ in ‘ETH’ - balance [‘EUR’] [‘ETH’]
+1. The amount of ‘EUR’ in ‘ETH’ - balance [‘EUR’] [‘ETH’]
 
 ## Getting account settings
 ```javascript
@@ -566,12 +566,12 @@ POST "api/v1/deposit/address"
 
 ### Deposit order specific parameters
 
-  1. `address - replenishment address`
-  2. `status - order status`
-  3. `order_id - order_id in the system using which you can get the details of an order`
-  4. `customer_id - customer`s ID`
-  5. `amount – replenishment amount`
-  6. `received_amount - the amount credited to the account`
+1. `address - replenishment address`
+1. `status - order status`
+1. `order_id - order_id in the system using which you can get the details of an order`
+1. `customer_id - customer`s ID`
+1. `amount – replenishment amount`
+1. `received_amount - the amount credited to the account`
  
 ### Order details for callback notifications
 
@@ -995,18 +995,18 @@ For example, a merchant may issue an invoice for payment of goods or services an
 
 #### Invoice work stages:
 
-1) an invoice is created (a link for payment is generated)
-2) the user follows the link (logs in to coinpay.com.ua), choose in which way payment should be done and pay it
+1. an invoice is created (a link for payment is generated)
+1. the user follows the link (logs in to coinpay.ua), choose in which way payment should be done and pay it
 
 
 #### Possible statuses:
 
-1) ‘NEW’ - invoice is created
-2) ‘PAYMENT_IN_PROGRESS’ - payment is being processed. Awaiting the final status
-3) ‘CLOSED’ - invoice successfully paid
-4) ‘ERROR’ – invoice payment failed
-5) ‘EXPIRED’ - invoice has ceased to exist. An invoice ceases to be active in 900 seconds
-6) ‘WAITING_FOR_CONFIRMATION’ - waiting for payment on deposit address to pay invoice via  FIAT GATEWAY or CRYPTO GATEWAY
+1. ‘NEW’ - invoice is created
+1. ‘PAYMENT_IN_PROGRESS’ - payment is being processed. Awaiting the final status
+1. ‘CLOSED’ - invoice successfully paid
+1. ‘ERROR’ – invoice payment failed
+1. ‘EXPIRED’ - invoice has ceased to exist. An invoice ceases to be active in 900 seconds
+1. ‘WAITING_FOR_CONFIRMATION’ - waiting for payment on deposit address to pay invoice via  FIAT GATEWAY or CRYPTO GATEWAY
 
 ### Getting invoice order settings
 
@@ -1078,13 +1078,13 @@ Indicates the amount and limits for invoice issuance.
 #### Sample response for a successfully created invoice
 ```javascript
  {
-  "url": "https://coinpay.com.ua/invoice/cf700d3b-20b4-4b33-b195-38709b7e51fa",
+  "url": "https://coinpay.ua/invoice/cf700d3b-20b4-4b33-b195-38709b7e51fa",
   "order_id": "cf700d3b-20b4-4b33-b195-38709b7e51fa",
   "status": "success"
 }
 ```
 
-In order to pay, the user needs to follow the specified link, log in to coinpay.com.ua, choose the currency and go through the payment process.
+In order to pay, the user needs to follow the specified link, log in to coinpay.ua, choose the currency and go through the payment process.
 
 
 ### Getting invoice details
@@ -1098,7 +1098,7 @@ Invoice details can be seen by the account that created such invoice, and by the
         "destination_account": "Svyat_merchant",
         "source_account": null
       },
-      "url": "https://coinpay.com.ua/invoice/cf700d3b-20b4-4b33-b195-38709b7e51fa",
+      "url": "https://coinpay.ua/invoice/cf700d3b-20b4-4b33-b195-38709b7e51fa",
       "order_sub_type": null,
       "dt": "None",
       "amount": 100,
@@ -1115,7 +1115,7 @@ Invoice details can be seen by the account that created such invoice, and by the
 ```javascript
 {"order_type": "INVOICE", 
  "dt": "2020-04-07 21:54:57.185155", 
- "url": "https://coinpay.com.ua/invoice/3542e3c2-4bab-48b8-bfbb-2b95b88c8a7a", 
+ "url": "https://coinpay.ua/invoice/3542e3c2-4bab-48b8-bfbb-2b95b88c8a7a", 
  "internal_id": 163787, 
  "order_sub_type": null, 
  "amount": 100.0, 
@@ -1133,20 +1133,20 @@ Invoice details can be seen by the account that created such invoice, and by the
 ### Exchange types
 The platform allows you to make two different types of exchange:
 
-1) Market exchange (order subtype – ‘MARKET_EXCHANGE’)
-2) Exchange upon reaching the indicated price - (order subtype – ‘LIMIT_EXCHANGE’)
+1. Market exchange (order subtype – ‘MARKET_EXCHANGE’)
+1. Exchange upon reaching the indicated price - (order subtype – ‘LIMIT_EXCHANGE’)
 
 Market exchange has the following statuses:
-1) ‘NEW’ – order is created
-2) ‘CLOSED’ - exchange is successful
-3) ‘ERROR’ – exchange resulted in an error
+1. ‘NEW’ – order is created
+1. ‘CLOSED’ - exchange is successful
+1. ‘ERROR’ – exchange resulted in an error
 
 Limit exchange has the following statuses:
-1) ‘NEW’, ‘WAITING_FOR_PRICE’ - waiting for the price on the platform
-2) ‘CLOSED’ - exchange successfully completed
-3) ‘ERROR’ – exchange resulted in an error
-4) ‘CANCELLING’ – exchange is being canceled
-5) ‘CANCELLED’ - exchange is canceled
+1. ‘NEW’, ‘WAITING_FOR_PRICE’ - waiting for the price on the platform
+1. ‘CLOSED’ - exchange successfully completed
+1. ‘ERROR’ – exchange resulted in an error
+1. ‘CANCELLING’ – exchange is being canceled
+1. ‘CANCELLED’ - exchange is canceled
 
 
 ### Getting exchange order settings
@@ -1209,14 +1209,14 @@ POST /api/v1/exchange
 ```
 
 #### Exchange creation rules
-1) It is necessary to indicate the currency that is spent and the currency that is bought
-2) You need to specify one of the amounts or make an exchange spending X currency, or make a purchase to get Y currency
-3) If you want to purchase at the ordered price, you need to specify the following parameter value – ‘exchange_price’
-4) You can specify callback_url to subscribe to notifications on changes in exchange status
+1. It is necessary to indicate the currency that is spent and the currency that is bought
+1. You need to specify one of the amounts or make an exchange spending X currency, or make a purchase to get Y currency
+1. If you want to purchase at the ordered price, you need to specify the following parameter value – ‘exchange_price’
+1. You can specify callback_url to subscribe to notifications on changes in exchange status
 
 #### Examples
 
-1) Purchasing 1 BTC for UAH at the market price
+1. Purchasing 1 BTC for UAH at the market price
 ```javascript
 {
   "currency_to_spend": "UAH",
@@ -1225,7 +1225,7 @@ POST /api/v1/exchange
 }
 ```
 
-2) Purchasing 1 BTC for UAH at the market price spending 1000 UAH on exchange
+1. Purchasing 1 BTC for UAH at the market price spending 1000 UAH on exchange
 ```javascript
 {
   "currency_to_spend": "UAH",
@@ -1234,7 +1234,7 @@ POST /api/v1/exchange
 }
 ```
 
-3) Purchasing 1 BTC for UAH at the price of 200.000
+1. Purchasing 1 BTC for UAH at the price of 200.000
 ```javascript
 {
   "currency_to_spend": "UAH",
