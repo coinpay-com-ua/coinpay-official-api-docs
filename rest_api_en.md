@@ -1225,7 +1225,7 @@ POST /api/v1/exchange
 }
 ```
 
-1. Purchasing 1 BTC for UAH at the market price spending 1000 UAH on exchange
+2. Purchasing 1 BTC for UAH at the market price spending 1000 UAH on exchange
 ```javascript
 {
   "currency_to_spend": "UAH",
@@ -1234,7 +1234,7 @@ POST /api/v1/exchange
 }
 ```
 
-1. Purchasing 1 BTC for UAH at the price of 200.000
+3. Purchasing 1 BTC for UAH at the price of 200.000
 ```javascript
 {
   "currency_to_spend": "UAH",
